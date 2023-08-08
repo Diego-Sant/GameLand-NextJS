@@ -1,0 +1,14 @@
+npm i @prisma/client 
+@stripe/stripe-js 
+@supabase/auth-helpers-nextjs 
+@supabase/auth-helpers-react 
+@supabase/auth-ui-react 
+@supabase/auth-ui-shared 
+@supabase/supabase-js 
+debounce 
+moment 
+react-icons
+react-responsive-carousel
+react-toastify
+stripe
+prisma
