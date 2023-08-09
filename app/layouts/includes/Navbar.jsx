@@ -85,14 +85,14 @@ export default function Navbar() {
 
     const categories = [
         { id: 9, icon: <House />, text: 'Menu inicial', link: '/' },
-        { id: 1, icon: <NewReleases />, text: 'Novidades', link: '/produtos/1' },
-        { id: 2, icon: <ShowChart />, text: 'Mais vendidos', link: '/produtos/2' },
-        { id: 3, icon: <Person />, text: 'Um jogador', link: '/produtos/3' },
-        { id: 4, icon: <People />, text: 'Multijogador', link: '/produtos/4' },
-        { id: 5, icon: <Language />, text: 'Online', link: '/produtos/5' },
-        { id: 6, icon: <BsPlaystation className='h-6 w-6' />, text: 'Playstation', link: '/produtos/6' },
-        { id: 7, icon: <BsXbox className='h-6 w-6' />, text: 'Xbox', link: '/produtos/7' },
-        { id: 8, icon: <BsNintendoSwitch className='h-6 w-6' />, text: 'Nintendo', link: '/produtos/8' },
+        { id: 1, icon: <NewReleases />, text: 'Novidades', link: '/novidades' },
+        { id: 2, icon: <ShowChart />, text: 'Mais vendidos', link: '/maisvendidos' },
+        { id: 3, icon: <Person />, text: 'Um jogador', link: '/umjogador' },
+        { id: 4, icon: <People />, text: 'Multijogador', link: '/multijogador' },
+        { id: 5, icon: <Language />, text: 'Online', link: '/online' },
+        { id: 6, icon: <BsPlaystation className='h-6 w-6' />, text: 'Playstation', link: '/playstation' },
+        { id: 7, icon: <BsXbox className='h-6 w-6' />, text: 'Xbox', link: '/xbox' },
+        { id: 8, icon: <BsNintendoSwitch className='h-6 w-6' />, text: 'Nintendo', link: '/nintendo' },
     ];
 
     return (
@@ -101,7 +101,7 @@ export default function Navbar() {
                 <div className='flex flex-col-reverse sm:flex-row justify-between'>
                     <div className='flex items-center justify-center sm:justify-start gap-x-4'>
                         <div className='ml-2'>
-                            <Link href="/"><img className='w-14 h-14 sm:w-20 sm:h-20' src="images/logo.png" alt="Gameland" /></Link>
+                            <Link href="/"><img className='w-14 h-14 sm:w-20 sm:h-20 hover:brightness-90' src="images/logo.png" alt="Gameland" /></Link>
                         </div>
                         <div className='flex'>
                             <img className='w-9 h-6' src="images/brasil.png" alt="Bandeira do Brasil" />
@@ -148,14 +148,14 @@ export default function Navbar() {
                                 <button className="hover:text-white/70"><Search /></button>
                             </div>
                             <div onClick={handleProfileClick} className="flex items-center">
-                                <PersonOutlineOutlined />
-                                <BsChevronDown className="font-bold" size={12} />
+                                <PersonOutlineOutlined className="hover:text-white/70" />
+                                <BsChevronDown className="font-bold hover:text-white/70" size={12} />
                             </div>
                             <div onClick={handleFavoriteClick}>
-                                <FavoriteBorderOutlined />
+                                <FavoriteBorderOutlined className="hover:text-white/70" />
                             </div>
                             <div className='relative' onClick={handleCartClick}>
-                                <ShoppingCartOutlined />
+                                <ShoppingCartOutlined className="hover:text-white/70" />
                                 <span className='flex justify-center items-center absolute -right-[10px] -top-[10px] text-[16px] w-[20px] h-[20px] bg-[#8900ff] rounded-full'>0</span>
                             </div>
                         </div>
