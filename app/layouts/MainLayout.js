@@ -7,9 +7,7 @@ export default function MainLayout({children}) {
         <>
             <div id="MainLayout">
                 <div>
-                    <Navbar>
-
-                    </Navbar>
+                    <Navbar />
                 </div>
             </div>
         </>
