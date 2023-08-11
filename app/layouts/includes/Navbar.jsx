@@ -12,6 +12,7 @@ import Favorite from "@/components/Favorite";
 import Profile from "@/components/Profile";
 
 import Link from "next/link";
+import { IMAGES_PATH } from "@/utils/constants";
 
 export default function Navbar() {
     const [isDesktop, setIsDesktop] = useState(false);
@@ -101,10 +102,10 @@ export default function Navbar() {
                 <div className='flex flex-col-reverse sm:flex-row justify-between'>
                     <div className='flex items-center justify-center sm:justify-start gap-x-4'>
                         <div className='ml-2'>
-                            <Link href="/"><img className='w-14 h-14 sm:w-20 sm:h-20 hover:brightness-90' src="images/logo.png" alt="Gameland" /></Link>
+                            <Link href="/"><img className='w-14 h-14 sm:w-20 sm:h-20 hover:brightness-90' src={`${IMAGES_PATH}/logo.png`} alt="Gameland" /></Link>
                         </div>
                         <div className='flex'>
-                            <img className='w-9 h-6' src="images/brasil.png" alt="Bandeira do Brasil" />
+                            <img className='w-9 h-6' src={`${IMAGES_PATH}/brasil.png`} alt="Bandeira do Brasil" />
                         </div>
                         <div className='-ml-2 text-[12px]'>
                             <span>BRL</span>
@@ -144,7 +145,10 @@ export default function Navbar() {
                     <div className='flex justify-end items-center mr-4 mb-4 mt-2 sm:mt-0 sm:mb-0'>
                         <div className='flex gap-x-4 cursor-pointer flex-grow items-center'>
                             <div className="flex items-center gap-2 ml-2 sm:ml-0 w-full">
-                                <input type="text" placeholder="Pesquisar por título..." className="bg-[#2d2d2d] p-1 sm:p-2 rounded-md w-full" />
+                                <div className="sm:relative w-full">
+                                    <input type="text" id="searchplaceholder" placeholder="Pesquisar por título..." className="p-1 sm:p-2 rounded-md w-full sm:placeholder-transparent" />
+                                    <label htmlFor="searchplaceholder" className="sm:absolute sm:-top-[0.10rem] sm:left-0 text-gray-200 cursor-text">Pesquisar por título...</label>
+                                </div>
                                 <button className="hover:text-white/70"><Search /></button>
                             </div>
                             <div onClick={handleProfileClick} className="flex items-center">

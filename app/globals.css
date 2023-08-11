@@ -18,3 +18,33 @@ li:hover {
 .img-container:hover .img2 {
   z-index: 20;
 }
+
+.input-group {
+  position: relative;
+}
+
+input {
+  outline: 2px solid #fff;
+  background-color: transparent;
+  transition: outline-color 250ms;
+}
+
+input:focus {
+  outline-color: #3c50eb;
+}
+
+label {
+  transform: translate(10px, 10px);
+  transition: transform 200ms;
+}
+
+input:focus + label, input:valid + label:valid {
+  transform: translate(0, -25px) scale(0.8);
+  left: -15px;
+}
+
+@media (max-width: 640px) { /* Tamanho da tela menor que sm (640px) */
+  label {
+      display: none;
+  }
+}
