@@ -86,14 +86,14 @@ export default function Navbar() {
 
     const categories = [
         { id: 9, icon: <House />, text: 'Menu inicial', link: '/' },
-        { id: 1, icon: <NewReleases />, text: 'Novidades', link: '/novidades' },
-        { id: 2, icon: <ShowChart />, text: 'Mais vendidos', link: '/maisvendidos' },
-        { id: 3, icon: <Person />, text: 'Um jogador', link: '/umjogador' },
-        { id: 4, icon: <People />, text: 'Multijogador', link: '/multijogador' },
-        { id: 5, icon: <Language />, text: 'Online', link: '/online' },
-        { id: 6, icon: <BsPlaystation className='h-6 w-6' />, text: 'Playstation', link: '/playstation' },
-        { id: 7, icon: <BsXbox className='h-6 w-6' />, text: 'Xbox', link: '/xbox' },
-        { id: 8, icon: <BsNintendoSwitch className='h-6 w-6' />, text: 'Nintendo', link: '/nintendo' },
+        { id: 1, icon: <NewReleases />, text: 'Novidades', link: '/produtos/1' },
+        { id: 2, icon: <ShowChart />, text: 'Mais vendidos', link: '/produtos/1' },
+        { id: 3, icon: <Person />, text: 'Um jogador', link: '/produtos/1' },
+        { id: 4, icon: <People />, text: 'Multijogador', link: '/produtos/1' },
+        { id: 5, icon: <Language />, text: 'Online', link: '/produtos/1' },
+        { id: 6, icon: <BsPlaystation className='h-6 w-6' />, text: 'Playstation', link: '/produtos/1' },
+        { id: 7, icon: <BsXbox className='h-6 w-6' />, text: 'Xbox', link: '/produtos/1' },
+        { id: 8, icon: <BsNintendoSwitch className='h-6 w-6' />, text: 'Nintendo', link: '/produtos/1' },
     ];
 
     return (
@@ -146,8 +146,8 @@ export default function Navbar() {
                         <div className='flex gap-x-4 cursor-pointer flex-grow items-center'>
                             <div className="flex items-center gap-2 ml-2 sm:ml-0 w-full">
                                 <div className="sm:relative w-full">
-                                    <input type="text" id="searchplaceholder" placeholder="Pesquisar por título..." className="p-1 sm:p-2 rounded-md w-full sm:placeholder-transparent" />
-                                    <label htmlFor="searchplaceholder" className="sm:absolute sm:-top-[0.10rem] sm:left-0 text-gray-200 cursor-text">Pesquisar por título...</label>
+                                    <input type="text" id="searchplaceholder" placeholder="Pesquisar por título..." className="p-1 sm:p-2 rounded-md w-full sm:placeholder-transparent outline-1 focus:outline-[#8900ff] focus:outline-2" />
+                                    <label htmlFor="searchplaceholder" className="sm:absolute sm:-top-[0.10rem] sm:left-0 text-gray-200 cursor-text labelminwidth">Pesquisar por título...</label>
                                 </div>
                                 <button className="hover:text-white/70"><Search /></button>
                             </div>

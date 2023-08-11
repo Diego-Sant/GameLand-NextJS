@@ -33,18 +33,34 @@ input:focus {
   outline-color: #3c50eb;
 }
 
-label {
+.labelminwidth {
   transform: translate(10px, 10px);
   transition: transform 200ms;
 }
 
-input:focus + label, input:valid + label:valid {
+input:focus + .labelminwidth, input:valid + .labelminwidth:valid {
   transform: translate(0, -25px) scale(0.8);
   left: -15px;
 }
 
 @media (max-width: 640px) { /* Tamanho da tela menor que sm (640px) */
-  label {
+  .labelminwidth {
       display: none;
   }
+}
+
+input[type="range"] {
+  accent-color: #8900ff;
+}
+
+input[type="range"]:focus, input[type="checkbox"] {
+  outline: none;
+}
+
+input[type="checkbox"]{
+  accent-color: #8900ff;
+}
+
+input[type="radio"]{
+  accent-color: #8900ff;
 }
