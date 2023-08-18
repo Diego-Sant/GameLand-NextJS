@@ -155,8 +155,9 @@ export default function Navbar() {
                                 <PersonOutlineOutlined className="hover:text-white/70" />
                                 <BsChevronDown className="font-bold hover:text-white/70" size={12} />
                             </div>
-                            <div onClick={handleFavoriteClick}>
+                            <div className='relative' onClick={handleFavoriteClick}>
                                 <FavoriteBorderOutlined className="hover:text-white/70" />
+                                <span className='flex justify-center items-center absolute -right-[10px] -top-[10px] text-[16px] w-[20px] h-[20px] bg-[#8900ff] rounded-full'>0</span>
                             </div>
                             <div className='relative' onClick={handleCartClick}>
                                 <ShoppingCartOutlined className="hover:text-white/70" />

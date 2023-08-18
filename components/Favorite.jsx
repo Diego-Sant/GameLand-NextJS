@@ -22,7 +22,7 @@ const Favorite = () => {
 
   return (
     <div className='absolute right-[55px] left-[70px] sm:left-[280px] md:left-[380px] lg:left-[580px] xl:left-[780px] 2xl:left-[980px] top-[65px] sm:top-[72px] z-[100] bg-[#2d2d2d] p-[20px]'>
-        <h1 className='text-xl font-bold mb-6'>Lista de desejos</h1>
+        <h1 className='text-xl font-bold mb-6'>Lista de desejos<span> (0)</span></h1>
         <div className='flex items-center gap-[20px] mb-[30px]'>
             <Link className='w-fit min-w-[80px] max-w-[80px]' href="/produto" ><img src="https://picsum.photos/200" alt="Jogo" /></Link>
             <div className='flex-grow'>
@@ -34,6 +34,11 @@ const Favorite = () => {
                 </div>
             </div>
             <DeleteOutline onClick={() => {}} className='text-red-600 text-[30px] cursor-pointer hover:bg-red-600/90 hover:text-white hover:rounded-md' />
+        </div>
+        <div className='flex items-center justify-center'>
+            <Link href="/favoritos" className='w-full p-[10px] bg-[#7b61ff] flex items-center justify-center cursor-pointer disabled:bg-[#7b61ff]/70 disabled:cursor-default hover:bg-[#7b61ff]/80 gap-[10px] border-0 font-[500] mb-3'>
+            Ir para a lista de desejos
+            </Link>
         </div>
         <React.Fragment>
             <Button onClick={handleOpen}><p className='text-red-600 hover:text-red-600/80 text-[12px]'>Limpar a lista de desejos</p></Button>

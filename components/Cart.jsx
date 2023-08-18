@@ -22,12 +22,12 @@ const Cart = () => {
 
   return (
     <div className='absolute right-[10px] left-[100px] sm:left-[300px] md:left-[400px] lg:left-[600px] xl:left-[800px] 2xl:left-[1000px] top-[65px] sm:top-[72px] z-[100] bg-[#2d2d2d] p-[20px]'>
-        <h1 className='text-xl font-bold mb-6'>Produtos no carrinho</h1>
+        <h1 className='text-xl font-bold mb-6'>Produtos no carrinho<span> (0)</span></h1>
             <div className='flex items-center gap-[20px] mb-[30px]'>
                 <Link className='w-fit min-w-[80px] max-w-[80px]' href="/produto" ><img src="https://picsum.photos/200" alt="Jogo" /></Link>
                 <div className='flex-grow'>
                     <h1 className='font-bold text-ellipsis line-clamp-2'>Titulo</h1>
-                    <p className='text-ellipsis line-clamp-2'>DescriçãoDescriçãoDescriçãoDescriçãoDescrição</p>
+                    <p className='text-ellipsis line-clamp-2'>Descrição</p>
                     <div className='flex gap-2 items-center'>
                         <p>1x</p>
                         <div className='text-sm sm:text-lg'><span className='text-gray-400 line-through text-sm'>R$33</span></div>
@@ -41,9 +41,9 @@ const Cart = () => {
             <span className='text-[#7b61ff] font-bold text-2xl'>R$100</span>
         </div>
         <div className='flex items-center justify-center'>
-            <button className='w-full p-[10px] bg-[#7b61ff] flex items-center justify-center cursor-pointer disabled:bg-[#7b61ff]/70 disabled:cursor-default hover:bg-[#7b61ff]/80 gap-[10px] border-0 font-[500] mb-3'>
-            Finalizar compra
-            </button>
+            <Link href="/carrinho" className='w-full p-[10px] bg-[#7b61ff] flex items-center justify-center cursor-pointer disabled:bg-[#7b61ff]/70 disabled:cursor-default hover:bg-[#7b61ff]/80 gap-[10px] border-0 font-[500] mb-3'>
+            Ir para o carrinho
+            </Link>
         </div>
         <React.Fragment>
             <Button onClick={handleOpen}><p className='text-red-600 hover:text-red-600/80 text-[12px]'>Limpar o carrinho</p></Button>
