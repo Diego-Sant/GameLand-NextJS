@@ -50,7 +50,7 @@ export default function Favorite() {
                                 <div>Jogos: (2)</div>
                             </div>
                             <hr className="mb-4" />
-                            <div className="flex justify-between items-center">Total: <span className="font-bold text-2xl text-[#8900ff]">R$200,00</span></div>
+                            <div className="flex justify-between items-center">Total: <span className="font-bold text-2xl 8900ff]">R$200,00</span></div>
                         </div>
                     </div>
                 </div>
