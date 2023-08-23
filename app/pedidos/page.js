@@ -31,7 +31,7 @@ export default function Orders() {
     return (
         <div className="bg-[#121212] text-white">
             <MainLayout>
-                <div className="mt-4 min-h-[57.1vh]">
+                <div className="mt-4 min-h-screen">
                     <div className="bg-[#1f1f1f] w-full p-6 mb-4 min-h-[100px] flex items-center">
                         <AiOutlineHistory className="text-green-500" size={35} />
                         <span className="pl-4">Pedidos</span>
@@ -48,15 +48,15 @@ export default function Orders() {
                         <div key={order?.id} className="text-sm pl-[50px]">
                             <div className="border-b py-1">
                                 <div className="pt-2">
-                                    <span className="font-bold mr-2">Id do pedido: </span>
+                                    <span className="font-bold mr-2">Id do pedido:</span>
                                     {order?.stripe_id}
                                 </div>
                                 <div className="pt-2">
-                                    <span className="font-bold mr-2">Nome do destinatário: </span>
+                                    <span className="font-bold mr-2">Nome do destinatário:</span>
                                     {order?.name}
                                 </div>
                                 <div className="pt-2">
-                                    <span className="font-bold mr-2">Total: </span>
+                                    <span className="font-bold mr-2">Total:</span>
                                     R${order?.total?.toFixed(2).replace('.', ',')}
                                 </div>
                                 <div className="mt-2 flex items-center gap-4">
