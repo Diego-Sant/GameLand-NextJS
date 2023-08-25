@@ -3,11 +3,12 @@
 import { IMAGES_PATH } from "@/utils/constants";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { Auth } from "@supabase/auth-ui-react";
-import { ThemeSupa, supabase } from "@supabase/auth-ui-shared";
+import { ThemeSupa } from "@supabase/auth-ui-shared";
+
 import Link from "next/link";
 
 export default function AuthPage() {
-    // const supabase = createClientComponentClient();
+    const supabase = createClientComponentClient();
 
     return (
         <div className="bg-[#121212] text-white">
@@ -18,9 +19,18 @@ export default function AuthPage() {
                 <div className="w-full flex items-center justify-center p-5">
                     Entrar / Cadastrar
                 </div>
-                {/* <div className="max-w-[400px] mx-auto px-2">
-                    <Auth onlyThirdPartyProviders redirectTo={`${window.location.origin}/auth/callback`} providers={['google']} appearance={{theme: ThemeSupa}} supabaseClient={supabase} />
-                </div> */}
+                <div className="max-w-[400px] mx-auto px-2">
+                    {typeof window !== 'undefined' && (
+                        <Auth
+                            onlyThirdPartyProviders
+                            redirectTo={`${window.location.origin}/auth/callback`}
+                            providers={['google']}
+                            appearance={{ theme: ThemeSupa }}
+                            theme="dark"
+                            supabaseClient={supabase}
+                        />
+                    )}
+                </div>
             </div>
         </div>
     )

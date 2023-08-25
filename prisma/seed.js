@@ -233,19 +233,19 @@ async function promocoes() {
         await prisma.products.create({
             data: {
                 id: 13,
-                title: "No Man's Sky",
-                desc: "No Man's Sky é um jogo de ficção científica de exploração e sobrevivência num universo com geração processual infinita.",
-                img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co6zat.png",
-                img2: "https://images.igdb.com/igdb/image/upload/t_original/vg61reygvduwka9pv7by.jpg",
-                img3: "https://images.igdb.com/igdb/image/upload/t_original/byull3k2xzfndgivkdlw.jpg",
-                img4: "https://images.igdb.com/igdb/image/upload/t_original/xufkotfn5udk2aijb6f0.jpg",
-                img5: "https://images.igdb.com/igdb/image/upload/t_original/hlv3vnzamh1l3pdc2omn.jpg",
-                oldPrice: 162.00,
-                price: 81.00,
-                genres: ["Aventura", "Indie", "Mundo aberto", "RPG", "Simulador", "Ação", "Sandbox", "Ficção Científica", "Sobrevivência"],
+                title: "Don't Starve Together",
+                desc: "Don't Starve Together é uma expansão multiplayer autônoma para o jogo de sobrevivência em lugares inóspitos, Don't Starve.",
+                img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co6la0.png",
+                img2: "https://images.igdb.com/igdb/image/upload/t_original/if0gkhg8uwvghjv17gum.jpg",
+                img3: "https://images.igdb.com/igdb/image/upload/t_original/l3afsfqphx2wuladftu1.jpg",
+                img4: "https://images.igdb.com/igdb/image/upload/t_original/sc6vsr.jpg",
+                img5: "https://images.igdb.com/igdb/image/upload/t_original/sc6vsu.jpg",
+                oldPrice: 27.99,
+                price: 9.51,
+                genres: ["Aventura", "Indie", "Mundo aberto", "Estratégia", "Simulador", "Ação", "Terror", "Sandbox", "Sobrevivência"],
                 gameMode: ["Um jogador", "Multijogador", "Online"],
                 isNew: false,
-                publisher: ["Hello Games"]
+                publisher: ["Klei Entertainment"]
             },
         });
 

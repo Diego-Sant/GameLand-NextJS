@@ -39,6 +39,7 @@ export default function Checkout() {
                                         <span>Bairro: teste</span>
                                         <span>Cidade: teste</span>
                                         <span>Estado: teste</span>
+                                        <span>País: teste</span>
                                         <span>CEP: teste</span>
                                     </div>
                                 </div>
