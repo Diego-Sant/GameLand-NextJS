@@ -1,6 +1,9 @@
-import Provider from '@/context/user'
 import './globals.css'
-import { ToastContainer } from 'react-toastify'
+
+import Provider from '@/context/user'
+import CartProvider from '@/context/cart'
+import WishListProvider from '@/context/wishlist'
+import { ToasterProvider } from '@/provider/toastProvider'
 
 export const metadata = {
   title: 'Gameland',
@@ -11,9 +14,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
       <body>
-        <ToastContainer />
         <Provider>
-          {children}
+          <ToasterProvider />
+          <CartProvider>
+            <WishListProvider>
+              {children}
+            </WishListProvider>
+          </CartProvider>
         </Provider>
       </body>
     </html>

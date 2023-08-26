@@ -2,15 +2,22 @@
 
 import MainLayout from '@/app/layouts/MainLayout';
 import SimilarProducts from '@/components/SimilarProducts';
+
+import { useCart } from '@/context/cart';
+import { useWishList } from '@/context/wishlist';
+
 import { AddShoppingCart, Favorite, FavoriteBorder } from '@mui/icons-material';
 
 import React, { useEffect, useState } from 'react'
+import { toast } from 'react-hot-toast';
 
 const Product = () => {
   const [selectedImg, setSelectedImg] = useState("img");
-  const [quantity, setQuantity] = useState(1);
   const [expandedImage, setExpandedImage] = useState(null);
   const [isMounted, setIsMounted] = useState(false);
+
+  const cart = useCart();
+  const wishlist = useWishList();
 
     const handleImageClick = (src) => {
     setExpandedImage(src);
@@ -87,18 +94,27 @@ const Product = () => {
                     <span className='text-[#7b61ff] font-bold text-[1.8rem]'>R${item?.price?.toFixed(2).replace('.', ',')}</span>
                     </div>
                     <p className='text-[16px] font-[300] text-justify bg-[#1f1f1f] p-3'>{item?.desc}</p>
-                    <div className="flex items-center gap-[10px]">
-                        <button className='border border-[#7b61ff] bg-[#7b61ff]/20 hover:bg-[#7b61ff]/50 px-[0.85rem] py-1 disabled:bg-[#ddd]/40 disabled:border-[#ddd]' onClick={() => setQuantity(prev => prev === 1 ? 1 : prev - 1)} disabled={quantity === 1}>-</button>
-                        <span className='font-bold'>{quantity}</span>
-                        <button className='border border-[#7b61ff] bg-[#7b61ff]/20 hover:bg-[#7b61ff]/50 px-3 py-1' onClick={() => setQuantity(prev => prev + 1)}>+</button>
-                    </div>
                     
-                    <button onClick={() => {}} className='w-[250px] p-[10px] bg-[#7b61ff] flex items-center justify-center cursor-pointer hover:bg-[#7b61ff]/80 gap-[10px] border-0 font-[500]'>
-                        <AddShoppingCart /> Adicionar ao Carrinho
+                    <button onClick={() => {if (cart.isItemAdded) {
+                        cart.removeFromCart(product)
+                        toast.success("Jogo removido do carrinho com sucesso!", {autoClose: 3000})
+                    } else {
+                        cart.addToCart(product)
+                        toast.success("Jogo adicionado ao carrinho!", {autoClose: 3000})
+                    }}} className={`w-[250px] p-[10px] flex items-center justify-center cursor-pointer gap-[10px] border-0 font-[500] ${cart.isItemAdded ? "bg-red-600 hover:bg-red-600/80" : "bg-[#7b61ff] hover:bg-[#7b61ff]/80"}`}>
+                        <AddShoppingCart /> {cart.isItemAdded ? "Remover do carrinho" : "Adicionar ao Carrinho"}
                     </button>
-                    <div onClick={() => {}} className='flex items-center gap-2 font-[400] text-[16px] text-[#7b61ff]'>
-                        <FavoriteBorder className='cursor-pointer hover:text-[#7b61ff]/60' />Lista de desejos
+
+                    <div onClick={() => {if (wishlist.isItemAdded) {
+                        wishlist.removeFromWishList(product)
+                        toast.success("Jogo removido da lista de desejos com sucesso!", {autoClose: 3000})
+                    } else {
+                        wishlist.addToWishList(product)
+                        toast.success("Jogo adicionado à lista de desejos!", {autoClose: 3000})
+                    }}} className='flex items-center gap-2 font-[400] text-[16px] text-[#7b61ff]'>
+                        {wishlist.isItemAdded ? <Favorite className='cursor-pointer hover:text-[#7b61ff]/60' /> : <FavoriteBorder className='cursor-pointer hover:text-[#7b61ff]/60' />}Lista de desejos
                     </div>
+
                     <div className='bg-[#1f1f1f] flex flex-col gap-[10px] text-gray-200 font-size[14px] p-3'>
                         <div className='flex gap-1'>
                         <span>Distribuidora(s):</span>

@@ -13,7 +13,10 @@ import Profile from "@/components/Profile";
 
 import Link from "next/link";
 import { IMAGES_PATH } from "@/utils/constants";
+
 import { useUser } from "@/context/user";
+import { useCart } from "@/context/cart";
+import { useWishList } from "@/context/wishlist";
 
 export default function Navbar() {
     const [isDesktop, setIsDesktop] = useState(false);
@@ -23,6 +26,8 @@ export default function Navbar() {
     const [profileOpen, setProfileOpen] = useState(false);
 
     const user = useUser();
+    const cart = useCart();
+    const wishlist = useWishList();
 
     const containerRef = useRef(null);
 
@@ -181,11 +186,11 @@ export default function Navbar() {
 
                             <div className='relative' onClick={handleFavoriteClick}>
                                 <FavoriteBorderOutlined className="hover:text-white/70" />
-                                <span className='flex justify-center items-center absolute -right-[10px] -top-[10px] text-[16px] w-[20px] h-[20px] bg-[#8900ff] rounded-full'>0</span>
+                                <span className='flex justify-center items-center absolute -right-[10px] -top-[10px] text-[16px] w-[20px] h-[20px] bg-[#8900ff] rounded-full'>{wishlist.wishListCount()}</span>
                             </div>
                             <div className='relative' onClick={handleCartClick}>
                                 <ShoppingCartOutlined className="hover:text-white/70" />
-                                <span className='flex justify-center items-center absolute -right-[10px] -top-[10px] text-[16px] w-[20px] h-[20px] bg-[#8900ff] rounded-full'>0</span>
+                                <span className='flex justify-center items-center absolute -right-[10px] -top-[10px] text-[16px] w-[20px] h-[20px] bg-[#8900ff] rounded-full'>{cart.cartCount()}</span>
                             </div>
                         </div>
                     </div>
