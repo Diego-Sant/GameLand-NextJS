@@ -17,7 +17,9 @@ async function destaques() {
                 genres: ["Simulador", "Esportes"],
                 gameMode: ["Um jogador", "Multijogador", "Online"],
                 isNew: true,
-                publisher: ["2K"]
+                publisher: ["2K"],
+                consoles: ["Xbox", "Playstation", "Nintendo"],
+                bestSell: false
             },
         });
 
@@ -35,7 +37,8 @@ async function destaques() {
                 genres: ["Ação", "Hack & Slash/Beat 'em up", "Aventura", "Mundo aberto", "Stealth"],
                 gameMode: ["Um jogador"],
                 isNew: true,
-                publisher: ["Sony Interactive Entertainment"]
+                publisher: ["Sony Interactive Entertainment"],
+                onsoles: ["Playstation"]
             },
         });
 
@@ -389,5 +392,16 @@ async function promocoes() {
     }
 }
 
+async function updates() {
+    try {
+
+    } catch (error) {
+        console.error(error);
+    } finally {
+        await prisma.$disconnect();
+    }
+}
+
 destaques();
 promocoes();
+updates();

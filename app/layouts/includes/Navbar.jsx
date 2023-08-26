@@ -13,6 +13,7 @@ import Profile from "@/components/Profile";
 
 import Link from "next/link";
 import { IMAGES_PATH } from "@/utils/constants";
+import { useUser } from "@/context/user";
 
 export default function Navbar() {
     const [isDesktop, setIsDesktop] = useState(false);
@@ -20,6 +21,8 @@ export default function Navbar() {
     const [cartOpen, setCartOpen] = useState(false);
     const [favoriteOpen, setFavoriteOpen] = useState(false);
     const [profileOpen, setProfileOpen] = useState(false);
+
+    const user = useUser();
 
     const containerRef = useRef(null);
 
@@ -81,6 +84,10 @@ export default function Navbar() {
         setFavoriteOpen(false)
         setProfileOpen(!profileOpen);
     };
+
+    const handleProfileModalClose = () => {
+        setProfileOpen(false);
+    };
     
     const open = Boolean(anchorEl);
 
@@ -96,9 +103,27 @@ export default function Navbar() {
         { id: 8, icon: <BsNintendoSwitch className='h-6 w-6' />, text: 'Nintendo', link: '/produtos/1' },
     ];
 
+    const isLoggedIn = () => {
+        if (user && user?.id) {
+            return (
+                <button onClick={handleProfileClick} className="flex items-center gap-2 hover:underline cursor-pointer">
+                <div>{user?.name && user.name.split(' ')[0]}
+                </div>
+                <BsChevronDown className="font-bold hover:text-white/70" size={12} />
+                </button>
+            )
+        }
+
+        return (
+            <Link href="/auth" className="flex items-center">
+                <PersonOutlineOutlined className="hover:text-white/70" />
+            </Link>
+        )
+    }
+
     return (
         <>
-            <div id="Navbar" className='bg-[#1f1f1f]  py-2 text-white'>
+            <div className='bg-[#1f1f1f]  py-2 text-white'>
                 <div className='flex flex-col-reverse sm:flex-row justify-between'>
                     <div className='flex items-center justify-center sm:justify-start gap-x-4'>
                         <div className='ml-2'>
@@ -151,10 +176,9 @@ export default function Navbar() {
                                 </div>
                                 <button className="hover:text-white/70"><Search /></button>
                             </div>
-                            <div onClick={handleProfileClick} className="flex items-center">
-                                <PersonOutlineOutlined className="hover:text-white/70" />
-                                <BsChevronDown className="font-bold hover:text-white/70" size={12} />
-                            </div>
+                            
+                            {isLoggedIn()}
+
                             <div className='relative' onClick={handleFavoriteClick}>
                                 <FavoriteBorderOutlined className="hover:text-white/70" />
                                 <span className='flex justify-center items-center absolute -right-[10px] -top-[10px] text-[16px] w-[20px] h-[20px] bg-[#8900ff] rounded-full'>0</span>
@@ -168,7 +192,7 @@ export default function Navbar() {
                 </div>
                 {cartOpen && <Cart />}
                 {favoriteOpen && <Favorite />}
-                {profileOpen && <Profile />}
+                {profileOpen && <Profile onClose={handleProfileModalClose} />}
             </div>
         </>
     )

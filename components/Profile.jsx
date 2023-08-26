@@ -6,9 +6,11 @@ import Link from 'next/link';
 
 import { AiOutlineHistory } from 'react-icons/ai';
 import { LuLogOut } from 'react-icons/lu';
+import { useUser } from '@/context/user';
 
-const Profile = () => {
+const Profile = ({ onClose }) => {
     const [open, setOpen] = React.useState(false);
+    const user = useUser();
 
     const handleOpen = () => {
         setOpen(true);
@@ -18,15 +20,27 @@ const Profile = () => {
         setOpen(false);
     };
 
-    const handleCloseAndSignOut = () => {
-        setOpen(false);
+    const handleCloseAndSignOut = async () => {
+        await user.signOut();
+        onClose();
+    };
+
+    function limitWords(text, maxWords) {
+        const words = text.split(' ');
+    
+        if (words.length <= maxWords) {
+            return text;
+        }
+    
+        const limitedText = words.slice(0, maxWords).join(' ');
+        return `${limitedText}...`;
     }
 
   return (
     <div className='absolute w-[200px] right-24 top-[65px] sm:top-[72px] z-[100] bg-[#2d2d2d] p-[20px]'>
         <div className='flex items-center gap-[20px] mb-[30px]'>
-            <div className='w-fit min-w-[80px] max-w-[80px]'><img className='rounded-full' src="https://picsum.photos/200" alt="Foto de perfil" /></div>
-            <div className='font-bold text-[13px]'>Diego Santana</div>
+            <div className='w-fit min-w-[80px] max-w-[80px]'><img className='rounded-full' src={user?.picture} alt="Foto de perfil" /></div>
+            <div className='font-bold text-[13px]'>{user?.name && limitWords(user.name, 3)}</div>
         </div>
         <div>
         <div><Link href="/pedidos" className='flex items-center gap-2 font-bold text-[12px] hover:text-white/70 -ml-1 mb-2'><AiOutlineHistory size={16} />MEUS PEDIDOS</Link></div>

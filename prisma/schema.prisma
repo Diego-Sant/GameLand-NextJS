@@ -60,7 +60,9 @@ model Products {
   genres      String[]
   gameMode    String[]
   isNew       Boolean
+  bestSell    Boolean   @default(false)
   publisher   String[]
   created_at  DateTime? @default(now()) @db.Timestamptz(6)
+  consoles    String[]  @default([])
   orderItem   OrderItem[]
 }
