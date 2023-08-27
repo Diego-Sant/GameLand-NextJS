@@ -98,22 +98,26 @@ export default function Navbar() {
 
     const categories = [
         { id: 9, icon: <House />, text: 'Menu inicial', link: '/' },
-        { id: 1, icon: <NewReleases />, text: 'Novidades', link: '/produtos/1' },
-        { id: 2, icon: <ShowChart />, text: 'Mais vendidos', link: '/produtos/1' },
-        { id: 3, icon: <Person />, text: 'Um jogador', link: '/produtos/1' },
-        { id: 4, icon: <People />, text: 'Multijogador', link: '/produtos/1' },
-        { id: 5, icon: <Language />, text: 'Online', link: '/produtos/1' },
-        { id: 6, icon: <BsPlaystation className='h-6 w-6' />, text: 'Playstation', link: '/produtos/1' },
-        { id: 7, icon: <BsXbox className='h-6 w-6' />, text: 'Xbox', link: '/produtos/1' },
-        { id: 8, icon: <BsNintendoSwitch className='h-6 w-6' />, text: 'Nintendo', link: '/produtos/1' },
+        { id: 1, icon: <NewReleases />, text: 'Novidades', link: '/produtos/novidades' },
+        { id: 2, icon: <ShowChart />, text: 'Mais vendidos', link: '/produtos/maisvendidos' },
+        { id: 3, icon: <Person />, text: 'Um jogador', link: '/produtos/umjogador' },
+        { id: 4, icon: <People />, text: 'Multijogador', link: '/produtos/multijogador' },
+        { id: 5, icon: <Language />, text: 'Online', link: '/produtos/online' },
+        { id: 6, icon: <BsPlaystation className='h-6 w-6' />, text: 'Playstation', link: '/produtos/playstation' },
+        { id: 7, icon: <BsXbox className='h-6 w-6' />, text: 'Xbox', link: '/produtos/xbox' },
+        { id: 8, icon: <BsNintendoSwitch className='h-6 w-6' />, text: 'Nintendo', link: '/produtos/nintendo' },
     ];
 
     const isLoggedIn = () => {
         if (user && user?.id) {
+            let displayName = user?.name && user.name.split(' ')[0];
+            if (displayName.length > 8) {
+                displayName = displayName.substring(0, 8) + "...";
+            }
+
             return (
                 <button onClick={handleProfileClick} className="flex items-center gap-2 hover:underline cursor-pointer">
-                <div>{user?.name && user.name.split(' ')[0]}
-                </div>
+                <div>{displayName}</div>
                 <BsChevronDown className="font-bold hover:text-white/70" size={12} />
                 </button>
             )

@@ -11,16 +11,16 @@ const Footer = () => {
         <div className='flex'>
           <div className='flex flex-col gap-y-2 md:ml-2 md:mr-2 mr-9'>
             <h1 className='font-bold text-xl mb-2'>Categorias</h1>
-            <Link href="/produtos/1">Novidades</Link>
-            <Link href="/produtos/1">Mais vendidos</Link>
-            <Link href="/produtos/1">Um jogador</Link>
-            <Link href="/produtos/1">Multijogador</Link>
+            <Link href="/produtos/novidades">Novidades</Link>
+            <Link href="/produtos/maisvendidos">Mais vendidos</Link>
+            <Link href="/produtos/umjogador">Um jogador</Link>
+            <Link href="/produtos/multijogador">Multijogador</Link>
           </div>
           <div className='flex flex-col mt-11 gap-y-2'>
-            <Link href="/produtos/1">Online</Link>
-            <Link href="/produtos/1">Playstation</Link>
-            <Link href="/produtos/1">Xbox</Link>
-            <Link href="/produtos/1">Nintendo</Link>
+            <Link href="/produtos/online">Online</Link>
+            <Link href="/produtos/playstation">Playstation</Link>
+            <Link href="/produtos/xbox">Xbox</Link>
+            <Link href="/produtos/nintendo">Nintendo</Link>
           </div>
         </div>
         <div className='md:mb-12 block sm:hidden md:block'>
