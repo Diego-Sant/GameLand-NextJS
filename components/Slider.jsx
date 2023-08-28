@@ -28,8 +28,8 @@ const Slider = () => {
             <img className='w-[100vw] h-[100%] object-cover' style={{objectPosition:"65% 15%"}} src={data[2]} alt="EA SPORTS™ FIFA 23" />
         </div>
         <div className='flex gap-x-8 w-fit absolute left-0 right-0 m-auto bottom-[40px] sm:bottom-[100px]'>
-            <div onClick={prevSlide} className='flex items-center justify-center w-[50px] h-[50px] border-[1px] border-gray-200 cursor-pointer bg-white/40 hover:bg-white/80 hover:text-gray-800'><WestOutlined /></div>
-            <div onClick={nextSlide} className='flex items-center justify-center w-[50px] h-[50px] border-[1px] border-gray-200 cursor-pointer bg-white/40 hover:bg-white/80 hover:text-gray-800'><EastOutlined /></div>
+            <div onClick={prevSlide} className='flex items-center justify-center w-[50px] h-[50px] border-[1px] border-gray-200 cursor-pointer bg-white/90 hover:bg-white/70 text-[#7b61ff]'><WestOutlined /></div>
+            <div onClick={nextSlide} className='flex items-center justify-center w-[50px] h-[50px] border-[1px] border-gray-200 cursor-pointer bg-white/90 hover:bg-white/70 text-[#7b61ff]'><EastOutlined /></div>
         </div>
     </div>
   )

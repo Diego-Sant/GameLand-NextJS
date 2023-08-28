@@ -36,11 +36,12 @@ export default function Checkout() {
                                 <div>
                                     <div className="flex flex-col gap-y-2 text-sm mt-2">
                                         <span>Nome: teste</span>
+                                        <span>CPF: teste</span>
+                                        <span>CEP: teste</span>
                                         <span>Bairro: teste</span>
                                         <span>Cidade: teste</span>
                                         <span>Estado: teste</span>
                                         <span>País: teste</span>
-                                        <span>CEP: teste</span>
                                     </div>
                                 </div>
                             </div>

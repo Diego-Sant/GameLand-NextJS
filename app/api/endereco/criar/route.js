@@ -19,6 +19,7 @@ export async function POST(req) {
                 name: body.name,
                 district: body.district,
                 cep: body.cep,
+                cpf: body.cpf,
                 city: body.city,
                 state: body.state,
                 country: body.country

@@ -40,7 +40,7 @@ const Profile = ({ onClose }) => {
     <div className='absolute w-[200px] right-24 top-[65px] sm:top-[72px] z-[100] bg-[#2d2d2d] p-[20px]'>
         <div className='flex items-center gap-[20px] mb-[30px]'>
             <div className='w-fit min-w-[80px] max-w-[80px]'><img className='rounded-full' src={user?.picture} alt="Foto de perfil" /></div>
-            <div className='font-bold text-[13px]'>{user?.name && limitWords(user.name, 3)}</div>
+            <div className='font-bold text-[13px] -ml-2'>{user?.name && limitWords(user.name, 3)}</div>
         </div>
         <div>
         <div><Link href="/pedidos" className='flex items-center gap-2 font-bold text-[12px] hover:text-white/70 -ml-1 mb-2'><AiOutlineHistory size={16} />MEUS PEDIDOS</Link></div>

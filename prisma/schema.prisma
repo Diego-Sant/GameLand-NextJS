@@ -16,6 +16,7 @@ model Address {
   name        String
   district    String
   cep         String
+  cpf         String
   city        String
   state       String
   country     String
@@ -29,6 +30,7 @@ model Orders {
   name        String
   district    String
   cep         String
+  cpf         String
   city        String
   state       String
   country     String
