@@ -77,7 +77,7 @@ const Product = () => {
                         {expandedImage && (
                         <>
                             <div className='fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black/70 z-50' onClick={handleCloseImage}>
-                            <img src={expandedImage} alt={title} className='max-w-[400px] max-h-[400px] md:max-w-[780px] md:max-h-[780px] xl:max-w-[1200px] lg:max-h-[1200px] z-[51] cursor-pointer' />
+                            <img src={expandedImage} alt="" className='max-w-[400px] max-h-[400px] md:max-w-[780px] md:max-h-[780px] xl:max-w-[1200px] lg:max-h-[1200px] z-[51] cursor-pointer' />
                             </div>
                             <button onClick={handleCloseImage} className='fixed top-4 right-4 bg-white hover:bg-white/90 w-10 h-10 text-black rounded-full font-bold p-2 z-[52]'>
                                 X

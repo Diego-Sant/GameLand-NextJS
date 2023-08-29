@@ -181,7 +181,7 @@ export default function Address() {
     return (
         <div className="bg-[#121212] text-white">
             <MainLayout>
-                <div className="mt-4 mb-4 max-w-[600px] min-h-screen mx-auto px-2">
+                <div className="mt-6 mb-10 max-w-[600px] mx-auto px-2">
                     <div className="mx-auto bg-[#1f1f1f] rounded-lg p-3">
                         <div className="text-xl text-bold mb-2">
                             Detalhes do endereço
