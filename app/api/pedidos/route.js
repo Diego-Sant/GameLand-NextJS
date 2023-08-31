@@ -11,7 +11,7 @@ export async function GET() {
 
         if (!user) throw Error()
 
-        const orders = await prisma.address.findMany({
+        const orders = await prisma.orders.findMany({
             where: { user_id: user?.id },
             orderBy: {id: "desc"},
             include: {

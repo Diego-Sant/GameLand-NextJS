@@ -1,32 +1,42 @@
 "use client"
 
 import Link from "next/link"
+
 import MainLayout from "../layouts/MainLayout"
+
+import { useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
+
 import { AiOutlineHistory } from "react-icons/ai"
 
+import { useUser } from "@/context/user";
+import isLoading from "@/hooks/loading";
+
+import moment from "moment/moment";
+
 export default function Orders() {
-    const orders = [
-        {
-            id: 1,
-            stripe_id: "1234",
-            name: "Teste",
-            total: 1299.00,
-            orderItem: [
-                {
-                    id: 1, 
-                    title: "The Expanse: A Telltale Series",
-                    img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co6j63.png",
-                    price: 100.00
-                },
-                {
-                    id: 2, 
-                    title: "The Legend of Zelda: Tears of the Kingdom",
-                    img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5vmg.png",
-                    price: 170.00
-                },
-            ]
+    const {user} = useUser();
+    const [orders, setOrders] = useState([])
+
+    const getOrders = async () => {
+        try {
+            if (!user && !user?.id) return
+            const res = await fetch("/api/pedidos");
+            const result = await res.json();
+
+            setOrders(result);
+            isLoading(false)
+        } catch (error) {
+            toast.error("Algo de errado aconteceu! Tente novamente mais tarde.", {autoClose: 3000});
+            isLoading(false)
         }
-    ]
+    }
+
+    useEffect(() => {
+        isLoading(true);
+        getOrders()
+    }, [user])
+
 
     return (
         <div className="bg-[#121212] text-white">
@@ -59,13 +69,17 @@ export default function Orders() {
                                     <span className="font-bold mr-2">Total:</span>
                                     R${order?.total?.toFixed(2).replace('.', ',')}
                                 </div>
+                                <div className="pt-2">
+                                    <span className="font-bold mr-2">Data do pedido:</span>
+                                    {moment(order?.created_at).calendar()}
+                                </div>
                                 <div className="mt-2 flex items-center gap-4">
                                     {order?.orderItem.map((item) => (
                                         <div key={item.id} className="flex items-center">
-                                            <Link href="/" className="flex flex-col py-1 hover:brightness-95">
-                                                <img className="rounded" width="120" src={item?.img} />
+                                            <Link href={`/produto/${item.product_id}`} className="flex flex-col py-1 hover:brightness-95">
+                                                <img className="rounded" width="120" src={item?.product.img} />
                                                 <div className="text-[#8900ff] mt-2 mb-4 font-semibold max-w-[100px] line-clamp-2">
-                                                    {item.title}
+                                                    {item.product.title}
                                                 </div>
                                             </Link>
                                         </div>

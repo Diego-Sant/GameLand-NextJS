@@ -29,7 +29,6 @@ const Cart = () => {
                     <h1 className='font-bold text-ellipsis line-clamp-2'>Titulo</h1>
                     <p className='text-ellipsis line-clamp-2'>Descrição</p>
                     <div className='flex gap-2 items-center'>
-                        <p>1x</p>
                         <div className='text-sm sm:text-lg'><span className='text-gray-400 line-through text-sm'>R$33</span></div>
                         <div className='text-sm sm:text-lg'><span className='text-[#7b61ff] font-bold'>R$44</span></div>
                     </div>

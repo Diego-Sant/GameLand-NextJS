@@ -1,7 +1,19 @@
-import React from 'react'
+import { useCart } from '@/context/cart'
+import { toast } from 'react-hot-toast';
+
 import { BiTrash } from 'react-icons/bi'
 
 const CartItem = ({ products }) => {
+    const cart = useCart();
+
+    const removeItemFromCart = () => {
+        let res = confirm(`Tem certeza que deseja remover o seguinte jogo do carrinho? "${products.title}"`);
+        if (res) {
+            cart.removeFromCart(products)
+            toast.success("Jogo removido do carrinho com sucesso!", {autoClose: 3000})
+        }
+    }
+
   return (
     <div className='bg-[#121212] text-white'>
         <div className='relative flex flex-col sm:flex-row justify-start my-2 border w-full p-6'>
@@ -22,13 +34,13 @@ const CartItem = ({ products }) => {
                                 </div>
                             </div>
                         </div>
-                        <div>
+                        <div className='line-clamp-5'>
                             {products.desc}
                         </div>
                     </div>
                 </div>
                 <div className='mt-4 mb-12 relative'>
-                    <button className='p-[10px] bg-red-600 absolute right-0 flex items-center justify-center cursor-pointer disabled:cursor-default hover:bg-red-600/80 gap-[10px] border-0 font-[500] mb-3 rounded-md'>
+                    <button onClick={() => removeItemFromCart()} className='p-[10px] bg-red-600 absolute right-0 flex items-center justify-center cursor-pointer disabled:cursor-default hover:bg-red-600/80 gap-[10px] border-0 font-[500] mb-3 rounded-md'>
                         Remover <BiTrash />
                     </button>
                 </div>

@@ -16,11 +16,16 @@ const CartProvider = ({ children }) => {
         if (typeof localStorage !== "undefined") {
             cart = JSON.parse(localStorage.getItem('cart')) || []
         }
+        
         return cart;
     }
 
     const addToCart = (product, state, action) => {
         let cart = [];
+
+        if (typeof localStorage !== "undefined") {
+            cart = JSON.parse(localStorage.getItem('cart')) || [];
+        }
 
         cart.push(product);
 

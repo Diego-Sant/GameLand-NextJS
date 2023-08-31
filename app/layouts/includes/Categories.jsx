@@ -8,7 +8,7 @@ const Categories = () => {
     <div className='bg-[#121212] text-white flex h-[80vh] gap-[10px] p-[10px]'>
         <div className='flex flex-1 flex-col gap-[10px]'>
             <div className='flex flex-1 gap-[10px] relative overflow-hidden'>
-                <img className='object-cover w-[100%] h-[100%]' src="https://images.igdb.com/igdb/image/upload/t_720p/sc8bit.jpg" alt="" />
+                <img className='object-cover w-[100%] h-[100%]' style={{objectPosition:"30%"}} src="https://images.igdb.com/igdb/image/upload/t_original/scaoj8.jpg" alt="The Legend of Zelda: Tears of the Kingdom" />
                 <Link href="/produtos/novidades">
                     <button className='absolute min-w-[100px] h-[50px] p-[10px] top-0 bottom-0 left-0 right-0 m-auto w-fit cursor-pointer border-none bg-white/40 hover:bg-white/80 uppercase font-bold rounded-md hover:text-[#121212]'>
                         Novidades
@@ -16,7 +16,7 @@ const Categories = () => {
                 </Link>
             </div>
             <div className='flex flex-1 gap-[10px] relative overflow-hidden'>
-                <img className='object-cover w-[100%] h-[100%]' src="https://images.igdb.com/igdb/image/upload/t_original/vfdeo6kgu0o4cyzd0sng.jpg" alt="" />
+                <img className='object-cover w-[100%] h-[100%]' src="https://images.igdb.com/igdb/image/upload/t_original/vfdeo6kgu0o4cyzd0sng.jpg" alt="Grand Theft Auto V" />
                 <Link href="/produtos/maisvendidos">
                     <button className='absolute min-w-[100px] h-[50px] p-[4px] top-0 bottom-0 left-0 right-0 m-auto w-fit cursor-pointer border-none bg-white/40 hover:bg-white/80 uppercase font-bold rounded-md hover:text-[#121212]'>
                         Mais vendidos
@@ -26,7 +26,7 @@ const Categories = () => {
         </div>
         <div className='flex flex-1 sm:flex-1 flex-col gap-[10px]'>
             <div className='flex flex-1 gap-[10px] relative overflow-hidden'>
-                <img className='object-cover w-[100%] h-[100%]' style={{objectPosition:"48%"}} src="https://images.igdb.com/igdb/image/upload/t_original/ar6rp.jpg" alt="" />
+                <img className='object-cover w-[100%] h-[100%]' style={{objectPosition:"48%"}} src="https://images.igdb.com/igdb/image/upload/t_original/ar6rp.jpg" alt="Assassin's Creed Valhalla" />
                 <Link href="/produtos/umjogador">
                     <button className='absolute min-w-[100px] h-[50px] p-[4px] top-0 bottom-0 left-0 right-0 m-auto w-fit cursor-pointer border-none bg-white/40 hover:bg-white/80 uppercase font-bold rounded-md hover:text-[#121212]'>
                         Um jogador
@@ -38,7 +38,7 @@ const Categories = () => {
             <div className='flex flex-1 gap-[10px] relative overflow-hidden'>
                 <div className='flex flex-1 flex-col gap-[10px]'>
                     <div className='flex flex-1 gap-[10px] relative overflow-hidden'>
-                        <img className='object-cover w-[100%] h-[100%]' style={{objectPosition:"65%"}} src="https://images.igdb.com/igdb/image/upload/t_original/scka81.jpg" alt="" />
+                        <img className='object-cover w-[100%] h-[100%]' style={{objectPosition:"65%"}} src="https://images.igdb.com/igdb/image/upload/t_original/scka81.jpg" alt="Remnant II" />
                         <Link href="/produtos/multijogador">
                             <button className='absolute min-w-[100px] h-[50px] p-[4px] top-0 bottom-0 left-0 right-0 m-auto w-fit cursor-pointer border-none bg-white/40 hover:bg-white/80 uppercase font-bold rounded-md hover:text-[#121212]'>
                                 Multijogador
@@ -48,7 +48,7 @@ const Categories = () => {
                 </div>
             </div>
             <div className='flex flex-1 gap-[10px] relative overflow-hidden'>
-                <img className='object-cover w-[100%] h-[100%]' style={{objectPosition:"0%"}} src="https://images.igdb.com/igdb/image/upload/t_720p/ar1nk8.jpg" alt="" />
+                <img className='object-cover w-[100%] h-[100%]' style={{objectPosition:"0%"}} src="https://images.igdb.com/igdb/image/upload/t_720p/ar1nk8.jpg" alt="Call of Duty: Modern Warfare II" />
                 <Link href="/produtos/online">
                     <button className='absolute min-w-[100px] h-[50px] p-[10px] top-0 bottom-0 left-0 right-0 m-auto w-fit cursor-pointer border-none bg-white/40 hover:bg-white/80 uppercase font-bold rounded-md hover:text-[#121212]'>
                         Online

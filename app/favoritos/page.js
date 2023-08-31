@@ -1,10 +1,25 @@
 "use client"
 
 import SimilarProducts from "@/components/SimilarProducts"
-import MainLayout from "../layouts/MainLayout"
 import FavoriteItem from "@/components/FavoriteItem"
+import isLoading from "@/hooks/loading"
+
+import MainLayout from "../layouts/MainLayout"
+
+import { useWishList } from "@/context/wishlist"
+
+import { useEffect } from "react"
+import ClientOnly from "@/components/ClientOnly"
 
 export default function Favorites() {
+    const wishlist = useWishList();
+
+    useEffect(() => {
+        isLoading(true);
+        wishlist.getWishList();
+        wishlist.wishListTotal();
+        isLoading(false);
+    }, [wishlist]);
 
     const products = [
         {
@@ -34,13 +49,20 @@ export default function Favorites() {
             <div className="flex items-center mt-4 mb-4 justify-center font-bold text-4xl">
                 Lista de desejos
             </div>
+            {wishlist.wishListTotal() === 0 ?
+                <div className="relative flex items-center justify-center mt-10 mb-5 text-lg gap-2">
+                    <p>Não há nenhum jogo na lista de desejos!</p>
+                </div> :  
             <div className="relative flex items-baseline justify-between gap-2">
-                <div className="w-[96.9%]">
-                    {products.map((products) => (
-                        <FavoriteItem key={products.id} products={products} />
-                    ))}
-                </div>
+                <ClientOnly>
+                    <div className="w-[96.9%]">
+                        {wishlist.getWishList().map((products) => (
+                            <FavoriteItem key={products.id} products={products} />
+                        ))}
+                    </div>
+                </ClientOnly>
             </div>
+            }
             <SimilarProducts />
         </MainLayout>
     </div>

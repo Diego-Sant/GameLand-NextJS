@@ -147,7 +147,7 @@ const genres = [
         </div>
             <div className='flex-[3]'>
                 {poster.map((item) => (
-                    <div className='md:flex justify-center items-center hidden'><img className='bg-cover mb-[50px] xl:max-w-[880px] xl:min-w-[880px] 2xl:max-w-[1100px] 2xl:min-w-[1100px] 3xl:max-w-[1300px] 3xl:min-w-[1300px]' src={item.img} alt={item.title} /></div>
+                    <div key={item.id} className='md:flex justify-center items-center hidden'><img className='bg-cover mb-[50px] xl:max-w-[880px] xl:min-w-[880px] 2xl:max-w-[1100px] 2xl:min-w-[1100px] 3xl:max-w-[1300px] 3xl:min-w-[1300px]' src={item.img} alt={item.title} /></div>
                 ))}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center">
                     {products.map((item) => (
