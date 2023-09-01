@@ -1,6 +1,7 @@
 "use client"
 
 import Card from '@/components/Card';
+import isLoading from '@/hooks/loading';
 import { NewReleases } from '@mui/icons-material';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -8,6 +9,24 @@ import { useEffect, useState } from 'react';
 const Sale = ({ type }) => {
     const [maxItemsToShow, setMaxItemsToShow] = useState(10);
     const [windowWidth, setWindowWidth] = useState(false);
+
+    const [products, setProducts] = useState([]);
+
+    const getProducts = async () => {
+      isLoading(true);
+
+      const res = await fetch(`/api/produtos`);
+      const prods = await res.json();
+
+      setProducts([]);
+      setProducts(prods);
+
+      isLoading(false)
+    }
+
+    useEffect(() => {
+      getProducts()
+    }, [])
 
     useEffect(() => {
         const handleResize = () => {
@@ -47,28 +66,6 @@ const Sale = ({ type }) => {
         return array;
     };
 
-    const products = [
-        {
-            id: 3, 
-            title: "Remnant II",
-            desc: "In the near future on the outskirts of the asteroid belt, a bloody mutiny breaks loose on the Artemis. You take the role of XO Camina Drummer, where your choices determine the fate of the ship. What will you do with the truth, Bosmang?",
-            isNew: true,
-            img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co6lnp.png",
-            img2: "https://images.igdb.com/igdb/image/upload/t_original/scf13g.jpg",
-            price: 100.00
-        },
-        {
-            id: 4, 
-            title: "Pikmin 4",
-            desc: "The Legend of Zelda: Tears of the Kingdom is the sequel to The Legend of Zelda: Breath of the Wild. The setting for Link’s adventure has been expanded to include the skies above the vast lands of Hyrule.",
-            isNew: false,
-            img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co657e.png",
-            img2: "https://images.igdb.com/igdb/image/upload/t_original/scaoj8.jpg",
-            oldPrice: 200.00,
-            price: 170.00
-        },
-    ]
-
   return (
     <div className='bg-[#121212]'>
         <div className='px-[100px] py-[100px]'>
@@ -76,7 +73,8 @@ const Sale = ({ type }) => {
                 <h1 className='mb-10 text-white'>{type}</h1>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 justify-items-center">
-                {products && shuffleArray(products).slice(0, maxItemsToShow).map((item) => (
+                {products && shuffleArray(products).filter((item) => item.id >= 11 && item.id <= 20)
+                .slice(0, maxItemsToShow).map((item) => (
                     <Card key={item.id} item={item} />
                 ))}
             </div>

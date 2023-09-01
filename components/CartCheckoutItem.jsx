@@ -18,10 +18,10 @@ const CartCheckoutItem = ({ products }) => {
                 </div>
                 <div className='mt-4 flex items-center gap-10 mb-4 relative'>
                     {products?.oldPrice ? <div className='text-xl text-gray-300 line-through absolute right-36 flex items-center justify-center'>
-                        R${(products?.oldPrice)?.toFixed(2)?.replace(".", ",")}
+                        R${(products?.oldPrice / 100).toFixed(2).replace(".", ",")}
                     </div> : ""}
                     <div className='font-bold text-3xl text-[#8900ff] absolute right-0 flex items-center justify-center gap-[10px] border-0 rounded-md'>
-                        R${(products.price).toFixed(2).replace(".", ",")}
+                        R${(products?.price / 100).toFixed(2).replace(".", ",")}
                     </div>
                 </div>
             </div>

@@ -26,7 +26,7 @@ const FavoriteItem = ({ products }) => {
                                 {products.title}
                             </div>
                             <div className='font-bold text-3xl text-[#8900ff]'>
-                                R${(products.price).toFixed(2).replace(".", ",")}
+                                R${(products?.price / 100).toFixed(2).replace(".", ",")}
                             </div>
                         </div>
                         <div>
