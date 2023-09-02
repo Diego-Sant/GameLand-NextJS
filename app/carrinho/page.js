@@ -1,17 +1,16 @@
 "use client"
 
-import SimilarProducts from "@/components/SimilarProducts"
 import CartItem from "@/components/CartItem"
 import isLoading from "@/hooks/loading"
 import ClientOnly from "@/components/ClientOnly"
 
 import MainLayout from "../layouts/MainLayout"
-import Link from "next/link"
 
 import { useRouter } from "next/navigation"
 import { useCart } from "@/context/cart"
 
 import { useEffect } from "react"
+import OtherProducts from "@/components/OtherProducts"
 
 export default function Cart() {
     const router = useRouter();
@@ -62,12 +61,12 @@ export default function Cart() {
                                     <div>Jogos: ({cart.getCart().length})</div>
                                 </div>
                                 <hr className="mb-4" />
-                                <div className="flex justify-between items-center">Total: <span className="font-bold text-2xl 8900ff]">R${(cart.cartTotal()).toFixed(2).replace('.', ',')}</span></div>
+                                <div className="flex justify-between items-center">Total: <span className="font-bold text-2xl 8900ff]">R${(cart.cartTotal() / 100).toFixed(2).replace('.', ',')}</span></div>
                             </div>
                         </ClientOnly>
                     </div>
                 </div>
-                <SimilarProducts />
+                <OtherProducts />
             </MainLayout>
         </div>
     )

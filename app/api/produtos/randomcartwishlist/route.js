@@ -8,10 +8,10 @@ export async function GET() {
         let skip;
         do {
             skip = Math.floor(Math.random() * (productsCount - 6));
-        } while (productsCount - skip < 7);
+        } while (productsCount - skip < 6);
 
         const products = await prisma.products.findMany({
-            take: 7,
+            take: 6,
             skip: skip
         })
 

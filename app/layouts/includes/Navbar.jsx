@@ -18,6 +18,9 @@ import { useUser } from "@/context/user";
 import { useCart } from "@/context/cart";
 import { useWishList } from "@/context/wishlist";
 
+import { debounce } from "debounce";
+import { BiLoaderCircle } from "react-icons/bi";
+
 export default function Navbar() {
     const [isDesktop, setIsDesktop] = useState(false);
     const [anchorEl, setAnchorEl] = useState(null);
@@ -30,6 +33,35 @@ export default function Navbar() {
     const wishlist = useWishList();
 
     const containerRef = useRef(null);
+
+    const [items, setItems] = useState([]);
+    const [isSearching, setIsSearching] = useState(null);
+
+    const handleSearchName = debounce(async (event) => {
+        if (event.target.value == "") {
+            setItems([]);
+            return
+        }
+
+        setIsSearching(true);
+
+        try {
+            const res = await fetch(`/api/produtos/pesquisar/${event.target.value}`);
+            const result = await res.json();
+
+            if (result) {
+                setItems(result);
+                setIsSearching(false);
+                return
+            }
+
+            setItems([]);
+            setIsSearching(false);
+        } catch (error) {
+            console.log(error);
+            alert(error)
+        }
+    }, 500)
 
     useEffect(() => {
         const handleResize = () => {
@@ -180,10 +212,31 @@ export default function Navbar() {
                         <div className='flex gap-x-4 cursor-pointer flex-grow items-center'>
                             <div className="flex items-center gap-2 ml-2 sm:ml-0 w-full">
                                 <div className="sm:relative w-full">
-                                    <input type="text" id="searchplaceholder" placeholder="Pesquisar por título..." className="p-1 sm:p-2 rounded-md w-full sm:placeholder-transparent outline-1 focus:outline-[#8900ff] focus:outline-2" />
+                                    <input onChange={handleSearchName} type="text" id="searchplaceholder" placeholder="Pesquisar por título..." className="p-1 sm:p-2 rounded-md w-full sm:placeholder-transparent outline-1 focus:outline-[#8900ff] focus:outline-2" />
                                     <label htmlFor="searchplaceholder" className="sm:absolute sm:-top-[0.10rem] sm:left-0 text-gray-200 cursor-text labelminwidth">Pesquisar por título...</label>
+                                
+                                    
+                                    
+                                    {items.length > 0 ? 
+                                    
+                                    <div className="absolute bg-[#1f1f1f] h-auto mt-2 min-w-[285px] max-w-[285px] w-full z-20 left-0 top-12 p-1">
+                                        {items.slice(0, 20).map((item) => (
+                                            <div className="p-1" key={item.id}>
+                                                <Link href={`/produto/${item.id}`} className="flex items-center justify-between w-full cursor-pointer hover:bg-[#2d2d2d] p-1 px-2">
+                                                    <div className="flex items-center">
+                                                        <img src={item?.img} alt={item?.title} className="rounded-md" width="40" />
+                                                        <div className="truncate max-w-[140px] ml-2">{item?.title}</div>
+                                                    </div>
+                                                    <div className="truncate">R${(item?.price / 100).toFixed(2).replace(".", ",")}</div>
+                                                </Link>
+                                                
+                                            </div>
+                                        ))}
+                                    </div>
+
+                                    : null}
                                 </div>
-                                <button className="hover:text-white/70"><Search /></button>
+                                {isSearching ? <BiLoaderCircle className="mr-2 animate-spin" size={20} /> :<button className="hover:text-white/70"><Search /></button>}
                             </div>
                             
                             {isLoggedIn()}

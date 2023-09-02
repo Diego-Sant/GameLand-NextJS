@@ -2,8 +2,6 @@
 
 import Card from '@/components/Card';
 import isLoading from '@/hooks/loading';
-import { NewReleases } from '@mui/icons-material';
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 const Recomendations = ({ type }) => {

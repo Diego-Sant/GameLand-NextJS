@@ -1,6 +1,5 @@
 "use client"
 
-import SimilarProducts from "@/components/SimilarProducts"
 import FavoriteItem from "@/components/FavoriteItem"
 import isLoading from "@/hooks/loading"
 
@@ -10,6 +9,7 @@ import { useWishList } from "@/context/wishlist"
 
 import { useEffect } from "react"
 import ClientOnly from "@/components/ClientOnly"
+import OtherProducts from "@/components/OtherProducts"
 
 export default function Favorites() {
     const wishlist = useWishList();
@@ -63,7 +63,7 @@ export default function Favorites() {
                 </ClientOnly>
             </div>
             }
-            <SimilarProducts />
+            <OtherProducts />
         </MainLayout>
     </div>
   )

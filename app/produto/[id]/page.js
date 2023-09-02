@@ -91,7 +91,7 @@ const Product = ({ params }) => {
                 <div className='flex-[1] flex flex-col gap-[30px]'>
                     <h1 className='text-4xl font-bold -mt-2'>{product?.title}</h1>
                     <div className='flex gap-x-4 items-center'>
-                    {product?.oldPrice ? <span className='text-gray-400 text-[1.2rem] line-through'>R${(product?.oldPrice ).toFixed(2).replace(".", ",")}</span> : "" }
+                    {product?.oldPrice ? <span className='text-gray-400 text-[1.2rem] line-through'>R${(product?.oldPrice / 100).toFixed(2).replace(".", ",")}</span> : "" }
                     <span className='text-[#7b61ff] font-bold text-[1.8rem]'>R${(product?.price / 100).toFixed(2).replace(".", ",")}</span>
                     </div>
                     <p className='text-[16px] font-[300] text-justify bg-[#1f1f1f] p-3'>{product?.desc}</p>
@@ -145,7 +145,7 @@ const Product = ({ params }) => {
                     </div>
                 </div>
 
-            <SimilarProducts />
+                {product?.genres && <SimilarProducts currentProductGenres={product.genres} currentProductId={product.id} />}
         </MainLayout>
     </>
   )
