@@ -219,7 +219,7 @@ export default function Navbar() {
                                     
                                     {items.length > 0 ? 
                                     
-                                    <div className="absolute bg-[#1f1f1f] h-auto mt-2 min-w-[285px] max-w-[285px] w-full z-20 left-0 top-12 p-1">
+                                    <div className="absolute bg-[#1f1f1f] h-auto mt-2 sm:mt-0 min-w-[285px] max-w-[285px] w-full z-20 left-0 top-12 p-1">
                                         {items.slice(0, 20).map((item) => (
                                             <div className="p-1" key={item.id}>
                                                 <Link href={`/produto/${item.id}`} className="flex items-center justify-between w-full cursor-pointer hover:bg-[#2d2d2d] p-1 px-2">

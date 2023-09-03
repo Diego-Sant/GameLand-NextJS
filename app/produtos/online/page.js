@@ -104,78 +104,94 @@ const genres = [
     },
     {
         id: 8, 
-        genre: "Esportes"
+        genre: "Drama"
     },
     {
         id: 9, 
-        genre: "Estratégia"
+        genre: "Esportes"
     },
     {
         id: 10, 
-        genre: "Ficção Científica"
+        genre: "Estratégia"
     },
     {
         id: 11, 
-        genre: "Hack & Slash/Beat 'em up"
+        genre: "Ficção Científica"
     },
     {
         id: 12, 
-        genre: "Indie"
+        genre: "Guerra"
     },
     {
         id: 13, 
-        genre: "Mundo aberto"
+        genre: "Hack & Slash/Beat 'em up"
     },
     {
         id: 14, 
-        genre: "Negócios"
+        genre: "Indie"
     },
     {
         id: 15, 
-        genre: "Plataforma"
+        genre: "Mistério"
     },
     {
         id: 16, 
-        genre: "Puzzle"
+        genre: "Mundo aberto"
     },
     {
         id: 17, 
-        genre: "RPG"
+        genre: "Negócios"
     },
     {
         id: 18, 
-        genre: "RPG por Turnos"
+        genre: "Plataforma"
     },
     {
         id: 19, 
-        genre: "Sandbox"
+        genre: "Puzzle"
     },
     {
         id: 20, 
-        genre: "Shooter"
+        genre: "Romance"
     },
     {
         id: 21, 
-        genre: "Shoot 'em up"
+        genre: "RPG"
     },
     {
         id: 22, 
-        genre: "Simulador"
+        genre: "RPG por Turnos"
     },
     {
         id: 23, 
-        genre: "Sobrevivência"
+        genre: "Sandbox"
     },
     {
         id: 24, 
-        genre: "Stealth"
+        genre: "Shooter"
     },
     {
         id: 25, 
-        genre: "Terror"
+        genre: "Shoot 'em up"
     },
     {
         id: 26, 
+        genre: "Simulador"
+    },
+    {
+        id: 27, 
+        genre: "Sobrevivência"
+    },
+    {
+        id: 28, 
+        genre: "Stealth"
+    },
+    {
+        id: 29, 
+        genre: "Terror"
+    },
+    {
+        id: 30, 
         genre: "Visual Novel"
     },
 ]
@@ -186,8 +202,8 @@ const genres = [
         <div className='flex-[2] md:flex-[1] mr-12 -ml-6'>
         <h2 className='font-bold mb-2'>Categorias</h2>
             <div className='mb-4 flex flex-row sm:w-full justify-between sm:flex-col xl:flex-row'>
-                <div>
-                {genres?.slice(0, 13).map((item) => (
+            <div>
+                {genres?.slice(0, 15).map((item) => (
                     <div key={item.id}>
                         <input type="checkbox" className='outline-none mr-1' id={item.id} value={item.id} onChange={handleChangeGenres} />
                         <label className="text-sm sm:text-[1rem]" htmlFor={item.id}>{item.genre}</label>
@@ -195,7 +211,7 @@ const genres = [
                 ))}
                 </div>
                 <div>
-                {genres?.slice(13, 26).map((item) => (
+                {genres?.slice(15, 30).map((item) => (
                     <div key={item.id}>
                     <input type="checkbox" className='outline-none mr-1' id={item.id} value={item.id} onChange={handleChangeGenres} />
                     <label className="text-sm sm:text-[1rem]" htmlFor={item.id}>{item.genre}</label>
