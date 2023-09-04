@@ -132,47 +132,47 @@ const genres = [
     },
     {
         id: 15, 
-        genre: "Mistério"
+        genre: "Luta"
     },
     {
         id: 16, 
-        genre: "Mundo aberto"
+        genre: "Mistério"
     },
     {
         id: 17, 
-        genre: "Negócios"
+        genre: "Mundo aberto"
     },
     {
         id: 18, 
-        genre: "Plataforma"
+        genre: "Negócios"
     },
     {
         id: 19, 
-        genre: "Puzzle"
+        genre: "Plataforma"
     },
     {
         id: 20, 
-        genre: "Romance"
+        genre: "Puzzle"
     },
     {
         id: 21, 
-        genre: "RPG"
+        genre: "Romance"
     },
     {
         id: 22, 
-        genre: "RPG por Turnos"
+        genre: "RPG"
     },
     {
         id: 23, 
-        genre: "Sandbox"
+        genre: "RPG por Turnos"
     },
     {
         id: 24, 
-        genre: "Shooter"
+        genre: "Sandbox"
     },
     {
         id: 25, 
-        genre: "Shoot 'em up"
+        genre: "Shooter"
     },
     {
         id: 26, 
